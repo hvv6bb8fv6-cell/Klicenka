@@ -4,48 +4,69 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; form-action 'none'; base-uri 'none'">
-<meta name="theme-color" content="#f4efff">
+<meta name="theme-color" content="#f1ecfc">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Klíčenka">
 <meta name="referrer" content="no-referrer">
 <title>Klíčenka – moje hesla</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23ece7fb'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle'%3E%F0%9F%97%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='26' fill='%237567d3'/%3E%3Ccircle cx='38' cy='58' r='14' fill='none' stroke='white' stroke-width='7'/%3E%3Cpath d='M48 48 74 22M64 32l8 8M56 40l6 6' stroke='white' stroke-width='7' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
 <style>
 :root{
-  --bg:linear-gradient(160deg,#f4efff 0%,#eef6fb 55%,#fdf1ec 100%);
-  --card:#ffffff;--card2:#faf8ff;--bd:#e0d9f0;--tx:#2b2840;--mut:#6a6784;
-  --soft:#ece7fb;--soft-tx:#3d3490;--soft-bd:#cdc4f2;--soft-h:#ddd5f7;
+  --bg0:#f1ecfc;
+  --c1:#c2b0ff;--c2:#ffb6d3;--c3:#a6ebd5;--c4:#a5ccff;--c5:#ffd5b5;--bo:.8;--so:0;
+  --card:#ffffff;--glass:rgba(255,255,255,.66);--card2:rgba(250,248,255,.85);--bd:rgba(120,100,190,.2);--tx:#26233b;--mut:#625f7d;
+  --soft:rgba(236,231,251,.9);--soft-tx:#3d3490;--soft-bd:#cdc4f2;--soft-h:#ddd5f7;
   --pri:#7567d3;--pri-h:#6557c4;--pri-tx:#ffffff;
-  --ok-bg:#dcf4e6;--ok-tx:#1d6a43;--warn-bg:#ffe8d3;--warn-tx:#85430d;--bad-bg:#fde0e5;--bad-tx:#98283d;--gray-bg:#ebe8f1;--gray-tx:#58556f;
-  --shadow:0 6px 20px rgba(80,60,150,.08);--shadow-h:0 12px 28px rgba(80,60,150,.15);
-  --t0:#ece6ff;--t1:#dcf3e8;--t2:#ffe8da;--t3:#dbebfa;--t4:#fde3ee;--t5:#fff2cc;
+  --ok-bg:#d7f3e4;--ok-tx:#1b6a42;--warn-bg:#ffe5cf;--warn-tx:#85430d;--bad-bg:#fcdce2;--bad-tx:#98283d;--gray-bg:#ebe8f1;--gray-tx:#58556f;
+  --shadow:0 8px 28px rgba(80,60,150,.1);--shadow-h:0 14px 34px rgba(80,60,150,.18);
+  --t0:#e6e0ff;--t1:#d6f2e5;--t2:#ffe5d5;--t3:#d8e9fa;--t4:#fde0ec;--t5:#fff0c4;
+  --tc0:#5b4bc4;--tc1:#1d8656;--tc2:#bf5f1a;--tc3:#2a6bb0;--tc4:#bf3a70;--tc5:#9c7208;
   --overlay:rgba(40,30,80,.38);
 }
 [data-theme="dark"]{
-  --bg:linear-gradient(160deg,#15131e 0%,#1a1826 55%,#1d1a23 100%);
-  --card:#242130;--card2:#2b2838;--bd:#39344d;--tx:#ece9f8;--mut:#a7a2bf;
-  --soft:#363152;--soft-tx:#ddd6ff;--soft-bd:#4b446f;--soft-h:#463f6b;
+  --bg0:#0e0c1a;
+  --c1:#5b3cd8;--c2:#b0307f;--c3:#13909b;--c4:#2b4ccb;--c5:#7b3aa9;--bo:.62;--so:.75;
+  --card:#221f31;--glass:rgba(30,26,48,.58);--card2:rgba(42,38,62,.72);--bd:rgba(170,155,240,.2);--tx:#ece9f8;--mut:#a9a4c3;
+  --soft:rgba(60,52,98,.75);--soft-tx:#ddd6ff;--soft-bd:#51497a;--soft-h:rgba(80,70,128,.85);
   --pri:#9d90f2;--pri-h:#b0a5f7;--pri-tx:#1a1630;
-  --ok-bg:#1f3b2e;--ok-tx:#92e3b7;--warn-bg:#493220;--warn-tx:#ffc99a;--bad-bg:#4b2531;--bad-tx:#ffb0c0;--gray-bg:#35324a;--gray-tx:#bfbad6;
-  --shadow:0 6px 20px rgba(0,0,0,.28);--shadow-h:0 12px 28px rgba(0,0,0,.42);
-  --t0:#3a3260;--t1:#1f3b33;--t2:#4a3328;--t3:#223a52;--t4:#4a2a3c;--t5:#4a4125;
+  --ok-bg:#1d3b2d;--ok-tx:#92e3b7;--warn-bg:#4a3220;--warn-tx:#ffc99a;--bad-bg:#4b2431;--bad-tx:#ffb0c0;--gray-bg:rgba(70,64,100,.7);--gray-tx:#c3bedb;
+  --shadow:0 8px 28px rgba(0,0,0,.35);--shadow-h:0 14px 34px rgba(0,0,0,.5);
+  --t0:rgba(110,92,220,.28);--t1:rgba(60,190,140,.2);--t2:rgba(240,150,90,.2);--t3:rgba(80,160,235,.22);--t4:rgba(235,100,160,.22);--t5:rgba(235,200,80,.18);
+  --tc0:#bdb2ff;--tc1:#8de0b5;--tc2:#ffb98a;--tc3:#8cc4f5;--tc4:#f5a3c8;--tc5:#f0d27a;
   --overlay:rgba(5,3,15,.62);
 }
 *{box-sizing:border-box}
-html{scrollbar-gutter:stable;-webkit-text-size-adjust:100%}
-body{margin:0;min-height:100vh;background:var(--bg);background-attachment:fixed;color:var(--tx);
+html{scrollbar-gutter:stable;-webkit-text-size-adjust:100%;background:var(--bg0)}
+body{margin:0;min-height:100vh;color:var(--tx);
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.45;
-  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);transition:background .3s,color .3s}
+  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 [hidden]{display:none!important}
 .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.02em}
+svg.i{flex:0 0 auto;display:block}
+
+/* ---------- galaktické pozadí ---------- */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:var(--bg0);transition:background .4s}
+.bg i{position:absolute;border-radius:50%;filter:blur(90px);opacity:var(--bo);will-change:transform;transition:opacity .4s}
+.bg .b1{width:min(64vw,720px);height:min(64vw,720px);left:-14%;top:-20%;background:var(--c1);animation:d1 42s ease-in-out infinite alternate}
+.bg .b2{width:min(52vw,600px);height:min(52vw,600px);right:-12%;top:-8%;background:var(--c2);animation:d2 50s ease-in-out infinite alternate}
+.bg .b3{width:min(58vw,660px);height:min(58vw,660px);left:22%;bottom:-26%;background:var(--c3);animation:d3 46s ease-in-out infinite alternate}
+.bg .b4{width:min(50vw,560px);height:min(50vw,560px);right:-10%;bottom:-10%;background:var(--c4);animation:d2 56s ease-in-out infinite alternate-reverse}
+.bg .b5{width:min(40vw,440px);height:min(40vw,440px);left:-8%;bottom:6%;background:var(--c5);animation:d1 52s ease-in-out infinite alternate-reverse}
+.bg .stars{position:absolute;inset:0;opacity:var(--so);transition:opacity .4s;animation:twinkle 7s ease-in-out infinite alternate;
+  background-image:radial-gradient(1.2px 1.2px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 90px 140px,#fff,transparent),radial-gradient(1.6px 1.6px at 170px 70px,#fff,transparent),radial-gradient(1px 1px at 230px 200px,#fff,transparent),radial-gradient(1.2px 1.2px at 60px 230px,#e6dcff,transparent),radial-gradient(1.4px 1.4px at 210px 40px,#cfe7ff,transparent);
+  background-size:260px 260px,260px 260px,260px 260px,330px 330px,330px 330px,410px 410px}
+@keyframes d1{from{transform:translate(0,0) scale(1)}to{transform:translate(9vw,7vh) scale(1.18)}}
+@keyframes d2{from{transform:translate(0,0) scale(1.05)}to{transform:translate(-8vw,9vh) scale(.92)}}
+@keyframes d3{from{transform:translate(0,0) scale(.95)}to{transform:translate(-10vw,-8vh) scale(1.16)}}
+@keyframes twinkle{from{opacity:calc(var(--so)*.55)}to{opacity:var(--so)}}
 
 /* ---------- tlačítka ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--soft-bd);background:var(--soft);color:var(--soft-tx);
-  padding:8px 14px;border-radius:12px;font-weight:600;font-size:14px;transition:transform .15s,box-shadow .15s,background .15s;min-height:38px}
-.btn:hover{background:var(--soft-h);transform:translateY(-1px);box-shadow:0 4px 12px rgba(80,60,150,.14)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--soft-bd);background:var(--soft);color:var(--soft-tx);
+  padding:8px 14px;border-radius:12px;font-weight:600;font-size:14px;transition:transform .15s,box-shadow .15s,background .15s;min-height:38px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn:hover{background:var(--soft-h);transform:translateY(-1px);box-shadow:0 4px 12px rgba(80,60,150,.16)}
 .btn:active{transform:translateY(0)}
 .btn:focus-visible,.icon-btn:focus-visible,.tab:focus-visible,.chipbtn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pri);outline-offset:2px}
 .btn.pri{background:var(--pri);border-color:var(--pri);color:var(--pri-tx)}
@@ -55,18 +76,19 @@ button{cursor:pointer}
 .btn.ghost{background:transparent;border-color:var(--bd);color:var(--tx)}
 .btn.ghost:hover{background:var(--soft)}
 .btn[disabled]{opacity:.55;pointer-events:none}
-.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;border:1px solid var(--bd);background:var(--card2);
-  font-size:16px;transition:transform .15s,background .15s,box-shadow .15s;flex:0 0 auto;padding:0}
-.icon-btn:hover{background:var(--soft);transform:translateY(-1px);box-shadow:0 4px 10px rgba(80,60,150,.12)}
-.icon-btn.sm{width:32px;height:32px;font-size:14px;border-radius:10px}
-.icon-btn.bad:hover{background:var(--bad-bg)}
+.icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;border:1px solid var(--bd);background:var(--card2);color:var(--tx);
+  transition:transform .15s,background .15s,box-shadow .15s,color .15s;flex:0 0 auto;padding:0}
+.icon-btn:hover{background:var(--soft);color:var(--soft-tx);transform:translateY(-1px);box-shadow:0 4px 10px rgba(80,60,150,.14)}
+.icon-btn.sm{width:32px;height:32px;border-radius:10px}
+.icon-btn.bad:hover{background:var(--bad-bg);color:var(--bad-tx)}
 
 /* ---------- formuláře ---------- */
 label.f{display:block;font-size:12.5px;font-weight:700;color:var(--mut);margin:12px 0 5px;letter-spacing:.02em}
 .in,select.in,textarea.in{width:100%;background:var(--card2);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;font-size:16px;transition:border-color .15s,box-shadow .15s}
 .in:hover{border-color:var(--soft-bd)}
-.in:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(117,103,211,.18);outline:none}
+.in:focus{border-color:var(--pri);box-shadow:0 0 0 3px rgba(117,103,211,.2);outline:none}
 textarea.in{resize:vertical;min-height:70px}
+select.in option{background:var(--card);color:var(--tx)}
 .pwrow{display:flex;gap:6px;align-items:center}
 .pwrow .in{flex:1;min-width:0}
 .hint{font-size:12.5px;color:var(--mut);margin-top:6px}
@@ -79,23 +101,24 @@ input[type=checkbox],input[type=radio]{accent-color:var(--pri);width:17px;height
 .chk{display:flex;align-items:center;gap:8px;padding:6px 0;font-size:14px}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chipbtn{border:1px solid var(--bd);background:var(--card2);border-radius:999px;padding:4px 11px;font-size:13px;transition:background .15s,transform .15s}
+.chipbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--bd);background:var(--card2);border-radius:999px;padding:4px 11px;font-size:13px;transition:background .15s,transform .15s,color .15s}
 .chipbtn:hover{background:var(--soft);transform:translateY(-1px)}
 .chipbtn.on{background:var(--soft);border-color:var(--soft-bd);color:var(--soft-tx);font-weight:700}
 .icopick{display:flex;flex-wrap:wrap;gap:6px}
-.icopick button{width:38px;height:38px;border-radius:11px;border:1px solid var(--bd);background:var(--card2);font-size:19px;padding:0;transition:transform .15s,background .15s}
-.icopick button:hover{transform:translateY(-1px);background:var(--soft)}
-.icopick button.on{background:var(--soft);border-color:var(--pri);box-shadow:0 0 0 2px rgba(117,103,211,.25)}
+.icopick button{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;border:1px solid var(--bd);background:var(--card2);color:var(--mut);padding:0;transition:transform .15s,background .15s,color .15s}
+.icopick button:hover{transform:translateY(-1px);background:var(--soft);color:var(--soft-tx)}
+.icopick button.on{background:var(--soft);color:var(--soft-tx);border-color:var(--pri);box-shadow:0 0 0 2px rgba(117,103,211,.25)}
 .exrow{display:grid;grid-template-columns:1fr 1.3fr auto auto;gap:6px;margin-bottom:6px;align-items:center}
 .genpanel{background:var(--card2);border:1px dashed var(--soft-bd);border-radius:14px;padding:12px 14px;margin-top:10px}
 .genpanel .top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
-.sect{font-size:13px;font-weight:800;color:var(--soft-tx);margin:22px 0 4px;display:flex;align-items:center;gap:6px}
+.genpanel .top span:first-child{display:flex;align-items:center;gap:7px}
+.sect{font-size:13px;font-weight:800;color:var(--soft-tx);margin:22px 0 4px;display:flex;align-items:center;gap:7px}
 .sect:first-child{margin-top:0}
 
 /* ---------- zamykací obrazovka ---------- */
-#lock{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;background:var(--bg);overflow:auto}
-.lockcard{width:100%;max-width:400px;background:var(--card);border:1px solid var(--bd);border-radius:26px;padding:30px 26px 24px;box-shadow:var(--shadow-h);text-align:center;animation:pop .45s ease}
-.lockico{width:92px;height:92px;margin:0 auto 6px;border-radius:30px;background:var(--t0);display:flex;align-items:center;justify-content:center;font-size:48px;animation:float 3.6s ease-in-out infinite}
+#lock{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto}
+.lockcard{width:100%;max-width:400px;background:var(--glass);-webkit-backdrop-filter:blur(22px) saturate(1.3);backdrop-filter:blur(22px) saturate(1.3);border:1px solid var(--bd);border-radius:26px;padding:30px 26px 24px;box-shadow:var(--shadow-h);text-align:center;animation:pop .45s ease}
+.lockico{width:88px;height:88px;margin:0 auto 6px;border-radius:30px;background:linear-gradient(145deg,var(--t0),var(--t4));color:var(--tc0);display:flex;align-items:center;justify-content:center;animation:float 3.8s ease-in-out infinite;box-shadow:var(--shadow)}
 .lockcard h1{margin:8px 0 2px;font-size:26px;letter-spacing:-.01em}
 .lockcard p.sub{margin:0 0 14px;color:var(--mut);font-size:14px}
 .lockcard form{text-align:left}
@@ -105,23 +128,28 @@ input[type=checkbox],input[type=radio]{accent-color:var(--pri);width:17px;height
 .lockcard .links button:hover{color:var(--soft-tx)}
 .lockcard.shake{animation:shake .4s}
 .themeFloat{position:fixed;top:calc(12px + env(safe-area-inset-top));right:12px;z-index:60}
-.warnbox{background:var(--warn-bg);color:var(--warn-tx);border-radius:12px;padding:9px 12px;font-size:13px;text-align:left;margin-top:12px}
+.warnbox{display:flex;gap:8px;align-items:flex-start;background:var(--warn-bg);color:var(--warn-tx);border-radius:12px;padding:9px 12px;font-size:13px;text-align:left;margin-top:12px}
+.warnbox svg{margin-top:2px}
 
 /* ---------- aplikace ---------- */
 #app{max-width:1120px;margin:0 auto;padding:16px 16px 100px}
 header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand .logo{width:46px;height:46px;border-radius:15px;background:var(--t0);display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:var(--shadow)}
+.brand .logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(145deg,var(--t0),var(--t4));color:var(--tc0);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
 .brand h1{margin:0;font-size:22px;letter-spacing:-.01em;line-height:1.1}
 .brand small{color:var(--mut);font-size:12.5px}
 .hbtns{display:flex;gap:8px}
 .hbtns .btn{padding:8px 12px}
 .bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
 .search{position:relative;flex:1 1 260px}
-.search span{position:absolute;left:13px;top:50%;transform:translateY(-50%);opacity:.6;pointer-events:none}
-.search .in{padding-left:38px;border-radius:14px;background:var(--card)}
-.bar .sortsel{width:auto;flex:0 0 auto;border-radius:14px;background:var(--card);padding:10px 12px}
-.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:5px;overflow-x:auto;margin-bottom:12px;box-shadow:var(--shadow);scrollbar-width:none}
+.search .si{z-index:2;position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--mut);pointer-events:none;display:flex}
+.search .in{padding-left:40px;padding-right:44px;border-radius:14px;background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.search .in::-webkit-search-cancel-button,.search .in::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none}
+.sclear{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:none;background:var(--gray-bg);color:var(--gray-tx);display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s,color .15s,transform .15s}
+.sclear:hover{background:var(--soft-h);color:var(--soft-tx);transform:translateY(-50%) scale(1.08)}
+.sclear:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.bar .sortsel{width:auto;flex:0 0 auto;border-radius:14px;background:var(--glass);padding:10px 12px;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.tabs{display:flex;gap:6px;background:var(--glass);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:16px;padding:5px;overflow-x:auto;margin-bottom:12px;box-shadow:var(--shadow);scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
 .tab{flex:1 0 auto;border:none;background:transparent;border-radius:12px;padding:9px 14px;font-weight:700;font-size:14px;color:var(--mut);white-space:nowrap;transition:background .15s,color .15s}
 .tab:hover{background:var(--soft);color:var(--soft-tx)}
@@ -130,26 +158,29 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 .tab.on b{background:var(--card);color:var(--soft-tx)}
 .cats{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:6px;scrollbar-width:none}
 .cats::-webkit-scrollbar{display:none}
-.cats .chipbtn{margin:0;flex:0 0 auto;white-space:nowrap;padding:6px 12px}
+.cats .chipbtn{margin:0;flex:0 0 auto;white-space:nowrap;padding:6px 12px;background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.cats .chipbtn.on{background:var(--soft)}
 .banner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-radius:14px;padding:10px 14px;margin:6px 0 12px;font-size:14px;background:var(--warn-bg);color:var(--warn-tx)}
 .banner.info{background:var(--t3);color:var(--tx)}
+.banner .msg{display:flex;align-items:center;gap:9px;flex:1 1 260px}
 .banner .btn{min-height:32px;padding:4px 12px;font-size:13px}
 .countline{color:var(--mut);font-size:13px;margin:4px 2px 10px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:14px;align-items:start}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:16px;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s,border-color .18s}
+.card{background:var(--glass);-webkit-backdrop-filter:blur(18px) saturate(1.25);backdrop-filter:blur(18px) saturate(1.25);border:1px solid var(--bd);border-radius:20px;padding:16px;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s,border-color .18s}
 .grid.anim .card{animation:fadeIn .3s ease both}
 .card:hover{transform:translateY(-2px);box-shadow:var(--shadow-h);border-color:var(--soft-bd)}
 .card.st-expired{border-color:#f0b9c4}
 [data-theme="dark"] .card.st-expired{border-color:#7a3a4c}
 .ctop{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.ico{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:24px;flex:0 0 auto}
-.tone0 .ico{background:var(--t0)}.tone1 .ico{background:var(--t1)}.tone2 .ico{background:var(--t2)}.tone3 .ico{background:var(--t3)}.tone4 .ico{background:var(--t4)}.tone5 .ico{background:var(--t5)}
+.ico{width:46px;height:46px;border-radius:15px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.tone0 .ico{background:var(--t0);color:var(--tc0)}.tone1 .ico{background:var(--t1);color:var(--tc1)}.tone2 .ico{background:var(--t2);color:var(--tc2)}.tone3 .ico{background:var(--t3);color:var(--tc3)}.tone4 .ico{background:var(--t4);color:var(--tc4)}.tone5 .ico{background:var(--t5);color:var(--tc5)}
 .ttl{min-width:0;flex:1}
 .ttl h3{margin:0;font-size:16.5px;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ttl .sub{font-size:12.5px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ttl .sub{display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--mut);overflow:hidden;white-space:nowrap}
+.ttl .sub span{overflow:hidden;text-overflow:ellipsis}
 .ttl .sub a{color:var(--mut);text-decoration:none;border-bottom:1px dotted var(--mut)}
 .ttl .sub a:hover{color:var(--soft-tx)}
-.chip{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;flex:0 0 auto}
 .chip.ok{background:var(--ok-bg);color:var(--ok-tx)}.chip.soon{background:var(--warn-bg);color:var(--warn-tx)}.chip.expired{background:var(--bad-bg);color:var(--bad-tx)}.chip.gray{background:var(--gray-bg);color:var(--gray-tx)}
 .fields{background:var(--card2);border:1px solid var(--bd);border-radius:14px;padding:4px 10px}
 .frow{display:flex;align-items:center;gap:8px;padding:6px 0;min-height:44px}
@@ -159,10 +190,13 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 .frow .val.dots{letter-spacing:.12em;color:var(--mut)}
 .meta{font-size:12.5px;color:var(--mut);margin:10px 2px 2px}
 .meta.expired{color:var(--bad-tx);font-weight:600}.meta.soon{color:var(--warn-tx);font-weight:600}
-.note{font-size:13px;color:var(--mut);margin:8px 2px 0;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--t5);border-radius:10px;padding:7px 10px;color:var(--tx)}
+.note{display:flex;gap:7px;align-items:flex-start;font-size:13px;margin:8px 2px 0;white-space:pre-wrap;overflow-wrap:anywhere;background:var(--t5);border-radius:10px;padding:7px 10px;color:var(--tx)}
+.note svg{margin-top:2px}
 .hist{margin-top:10px;border-top:1px dashed var(--bd);padding-top:8px}
 .histtoggle{background:none;border:none;padding:4px 2px;color:var(--soft-tx);font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px}
 .histtoggle:hover{text-decoration:underline}
+.histtoggle .chev{transition:transform .2s}
+.histtoggle.open .chev{transform:rotate(90deg)}
 .hitem{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:12px;background:var(--card2);border:1px solid var(--bd);margin-top:6px}
 .hitem .hd{flex:1;min-width:0}
 .hitem .hd small{display:block;color:var(--mut);font-size:12px}
@@ -171,16 +205,17 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 .acts .btn{flex:1 1 auto}
 .acts .icon-btn{flex:0 0 auto}
 .empty{grid-column:1/-1;text-align:center;padding:50px 16px;color:var(--mut)}
-.empty .big{font-size:54px;display:block;margin-bottom:8px;animation:float 3.6s ease-in-out infinite}
+.empty .big{width:84px;height:84px;margin:0 auto 12px;border-radius:28px;background:linear-gradient(145deg,var(--t0),var(--t4));color:var(--tc0);display:flex;align-items:center;justify-content:center;animation:float 3.8s ease-in-out infinite;box-shadow:var(--shadow)}
 .empty h3{color:var(--tx);margin:0 0 6px}
-.fab{position:fixed;right:calc(18px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));width:58px;height:58px;border-radius:20px;border:none;background:var(--pri);color:var(--pri-tx);font-size:30px;line-height:1;box-shadow:var(--shadow-h);z-index:20;display:none;transition:transform .15s}
+.fab{position:fixed;right:calc(18px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));width:58px;height:58px;border-radius:20px;border:none;background:var(--pri);color:var(--pri-tx);box-shadow:var(--shadow-h);z-index:20;display:none;align-items:center;justify-content:center;transition:transform .15s}
 .fab:hover{transform:translateY(-2px) scale(1.03)}
 
 /* ---------- okna ---------- */
 #modal{position:fixed;inset:0;z-index:70}
-.backdrop{position:absolute;inset:0;background:var(--overlay);display:flex;align-items:center;justify-content:center;padding:16px;animation:fadeIn .18s;backdrop-filter:blur(3px)}
+.backdrop{position:absolute;inset:0;background:var(--overlay);display:flex;align-items:center;justify-content:center;padding:16px;animation:fadeIn .18s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .sheet{background:var(--card);border:1px solid var(--bd);border-radius:24px;width:100%;max-width:520px;max-height:92vh;max-height:92dvh;overflow:auto;padding:22px 22px 20px;box-shadow:var(--shadow-h);animation:pop .22s ease}
 .sheet h2{margin:0 0 4px;font-size:19px;display:flex;align-items:center;gap:10px}
+.sheet h2 svg{color:var(--soft-tx)}
 .sheet .lead{color:var(--mut);font-size:13.5px;margin:0 0 4px}
 .sheet .foot{display:flex;gap:8px;justify-content:flex-end;margin-top:20px;flex-wrap:wrap}
 .opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--bd);border-radius:14px;margin-top:8px;cursor:pointer;background:var(--card2);transition:border-color .15s,background .15s}
@@ -191,7 +226,7 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 .opt small{color:var(--mut);font-size:12.5px}
 .genout{display:flex;gap:6px;margin-bottom:6px}
 .genout .in{font-size:16px}
-#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--tx);color:var(--card);padding:10px 18px;border-radius:14px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:90;max-width:90vw;text-align:center;box-shadow:var(--shadow-h)}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);display:flex;align-items:center;gap:8px;background:var(--tx);color:var(--card);padding:10px 16px;border-radius:14px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:90;max-width:90vw;box-shadow:var(--shadow-h)}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 
 @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
@@ -202,50 +237,50 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 
 @media (max-width:640px){
   #app{padding:12px 12px 100px}
+  .bg i{filter:blur(60px)}
   .hbtns .t{display:none}
   .hbtns .btn{padding:0;width:40px;min-height:40px}
   .brand small{display:none}
-  .fab{display:block}
+  .fab{display:flex}
   #btnNewTop{display:none}
   .grid{grid-template-columns:1fr}
   .backdrop{align-items:flex-end;padding:0}
   .sheet{border-radius:24px 24px 0 0;max-width:none;max-height:94vh;max-height:94dvh;padding-bottom:calc(20px + env(safe-area-inset-bottom))}
-  .exrow{grid-template-columns:1fr 1fr auto auto}
-  .row2{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i><i class="b4"></i><i class="b5"></i><span class="stars"></span></div>
 
 <!-- ZAMYKACÍ OBRAZOVKA -->
 <div id="lock">
-  <button class="icon-btn themeFloat" id="lockTheme" type="button" title="Světlý / tmavý režim" aria-label="Přepnout světlý a tmavý režim">🌓</button>
+  <button class="icon-btn themeFloat" id="lockTheme" type="button" title="Světlý / tmavý režim" aria-label="Přepnout světlý a tmavý režim" data-themeicon></button>
   <div class="lockcard" id="lockCard">
-    <div class="lockico" aria-hidden="true">🗝️</div>
+    <div class="lockico" aria-hidden="true" data-ico="key" data-s="44"></div>
     <h1>Klíčenka</h1>
     <p class="sub" id="lockSub"></p>
     <form id="lockForm" autocomplete="off">
       <label class="f" for="lkPw" id="lkPwLbl">Hlavní heslo</label>
       <div class="pwrow">
         <input class="in" id="lkPw" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false">
-        <button class="icon-btn" type="button" id="lkEye" title="Zobrazit / skrýt" aria-label="Zobrazit nebo skrýt heslo">👁</button>
+        <button class="icon-btn" type="button" id="lkEye" title="Zobrazit / skrýt" aria-label="Zobrazit nebo skrýt heslo" data-ico="eye"></button>
       </div>
       <div id="lkSetup" hidden>
         <label class="f" for="lkPw2">Hlavní heslo znovu</label>
         <input class="in" id="lkPw2" type="password" autocomplete="new-password" autocapitalize="off" autocorrect="off" spellcheck="false">
         <div class="meter"><i id="lkMeter"></i></div>
         <div class="meter-l" id="lkMeterL">Aspoň 8 znaků, ideálně delší věta.</div>
-        <div class="warnbox">⚠️ Hlavní heslo nejde nijak obnovit. Když ho zapomeneš, data se nedají otevřít. Proto si občas stáhni zálohu.</div>
+        <div class="warnbox"><span data-ico="alert" data-s="16"></span><span>Hlavní heslo nejde nijak obnovit. Když ho zapomeneš, data se nedají otevřít. Proto si občas stáhni zálohu.</span></div>
       </div>
       <div class="err" id="lkErr" hidden></div>
       <button class="btn pri" id="lkGo" type="submit">Odemknout</button>
     </form>
     <div class="links" id="lkLinks">
       <button type="button" id="lkForgot">Zapomněla jsem heslo</button>
-      <button type="button" id="lkRestore">📥 Obnovit ze zálohy</button>
+      <button type="button" id="lkRestore">Obnovit ze zálohy</button>
     </div>
     <input type="file" id="lkFile" accept=".json,application/json" hidden>
-    <div class="warnbox" id="lkNoStore" hidden>⚠️ Tento prohlížeč neumožňuje trvalé ukládání. Data zůstanou jen do zavření stránky, proto použij Export zálohy.</div>
+    <div class="warnbox" id="lkNoStore" hidden><span data-ico="alert" data-s="16"></span><span>Tento prohlížeč neumožňuje trvalé ukládání. Data zůstanou jen do zavření stránky, proto použij Export zálohy.</span></div>
   </div>
 </div>
 
@@ -253,20 +288,24 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
 <div id="app" hidden>
   <header class="top">
     <div class="brand">
-      <div class="logo" aria-hidden="true">🗝️</div>
+      <div class="logo" aria-hidden="true" data-ico="key" data-s="24"></div>
       <div><h1>Klíčenka</h1><small>moje hesla, nic se neztratí</small></div>
     </div>
     <div class="hbtns">
-      <button class="btn" id="btnNewTop" type="button">＋ <span class="t">Nové heslo</span></button>
-      <button class="btn" id="btnGen" type="button" title="Generátor hesel" aria-label="Generátor hesel">🎲 <span class="t">Generátor</span></button>
-      <button class="btn" id="btnTheme" type="button" title="Světlý / tmavý režim" aria-label="Přepnout světlý a tmavý režim">🌓</button>
-      <button class="btn" id="btnSet" type="button" title="Nastavení a záloha" aria-label="Nastavení a záloha">⚙️ <span class="t">Nastavení</span></button>
-      <button class="btn" id="btnLock" type="button" title="Zamknout" aria-label="Zamknout">🔒 <span class="t">Zamknout</span></button>
+      <button class="btn" id="btnNewTop" type="button"><span data-ico="plus"></span><span class="t">Nové heslo</span></button>
+      <button class="btn" id="btnGen" type="button" title="Generátor hesel" aria-label="Generátor hesel"><span data-ico="dice"></span><span class="t">Generátor</span></button>
+      <button class="btn" id="btnTheme" type="button" title="Světlý / tmavý režim" aria-label="Přepnout světlý a tmavý režim" data-themeicon></button>
+      <button class="btn" id="btnSet" type="button" title="Nastavení a záloha" aria-label="Nastavení a záloha"><span data-ico="sliders"></span><span class="t">Nastavení</span></button>
+      <button class="btn" id="btnLock" type="button" title="Zamknout" aria-label="Zamknout"><span data-ico="lock"></span><span class="t">Zamknout</span></button>
     </div>
   </header>
 
   <div class="bar">
-    <div class="search"><span aria-hidden="true">🔍</span><input class="in" id="q" type="search" placeholder="Hledat název, uživatele, poznámku i staré heslo…" autocomplete="off" aria-label="Hledat"></div>
+    <div class="search">
+      <span class="si" data-ico="search" aria-hidden="true"></span>
+      <input class="in" id="q" type="search" placeholder="Hledat název, uživatele, poznámku i staré heslo…" autocomplete="off" aria-label="Hledat">
+      <button class="sclear" id="qClear" type="button" title="Smazat hledání" aria-label="Smazat hledání" data-ico="x" data-s="16" hidden></button>
+    </div>
     <select class="in sortsel" id="sort" aria-label="Řazení">
       <option value="az">A → Z</option>
       <option value="recent">Naposledy změněno</option>
@@ -280,7 +319,7 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:12p
   <div class="countline" id="countline"></div>
   <main class="grid" id="list"></main>
 </div>
-<button class="fab" id="fab" type="button" aria-label="Nové heslo" hidden>＋</button>
+<button class="fab" id="fab" type="button" aria-label="Nové heslo" data-ico="plus" data-s="28" hidden></button>
 
 <div id="modal" hidden></div>
 <div id="toast" role="status" aria-live="polite"></div>
@@ -299,6 +338,63 @@ function fmt(ts){return new Date(ts).toLocaleDateString('cs-CZ',{day:'numeric',m
 function dny(n){n=Math.abs(n);return n===1?'1 den':(n>=2&&n<=4?n+' dny':n+' dní');}
 function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
 function ymd(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
+
+/* ====================== ikony (vlastní SVG, žádné emoji) ====================== */
+var ICO={
+ key:'<circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3 21 2M17 6l3 3M14 9l2.5 2.5"/>',
+ mail:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3.5 7.5 8.5 6 8.5-6"/>',
+ bank:'<path d="M3 10 12 4l9 6"/><path d="M5.5 10v8M9.8 10v8M14.2 10v8M18.5 10v8M3 20.5h18"/>',
+ card:'<rect x="2.5" y="5" width="19" height="14" rx="3"/><path d="M2.5 10h19M6 15h4"/>',
+ cart:'<circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M2.5 3.5h3l2.4 11.2a1 1 0 0 0 1 .8h8.6a1 1 0 0 0 1-.8L20 7.5H6.2"/>',
+ box:'<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+ chat:'<path d="M20.5 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.6A8 8 0 1 1 20.5 12z"/>',
+ camera:'<path d="M4 8h3l1.6-2.5h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>',
+ music:'<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+ gamepad:'<rect x="2.5" y="7" width="19" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="16" cy="11.5" r=".9" fill="currentColor" stroke="none"/><circle cx="18.2" cy="14" r=".9" fill="currentColor" stroke="none"/>',
+ film:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/>',
+ cloud:'<path d="M7.5 18.5a4.5 4.5 0 0 1-.6-8.96 6 6 0 0 1 11.4 1.46 3.75 3.75 0 0 1-.8 7.5z"/>',
+ home:'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5M10 20v-5.5h4V20"/>',
+ phone:'<rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/>',
+ laptop:'<rect x="4.5" y="5" width="15" height="10" rx="2"/><path d="M2.5 19h19"/>',
+ globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/>',
+ building:'<rect x="5" y="3" width="14" height="18" rx="1.8"/><path d="M9 7.5h2M13 7.5h2M9 11.5h2M13 11.5h2M10 21v-4h4v4"/>',
+ heart:'<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.5 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>',
+ plane:'<path d="M21.5 3 2.5 10.5l7 3 3 7z"/><path d="M9.5 13.5 21.5 3"/>',
+ car:'<rect x="3.5" y="12" width="17" height="6" rx="2"/><path d="m5.5 12 1.6-4.5h9.8L18.5 12"/><circle cx="7.5" cy="15" r=".8" fill="currentColor" stroke="none"/><circle cx="16.5" cy="15" r=".8" fill="currentColor" stroke="none"/>',
+ book:'<path d="M4 5.5A2 2 0 0 1 6 3.5h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20.5v-15M8 8h7"/>',
+ receipt:'<path d="M6 3.5h12v17l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/>',
+ wifi:'<path d="M2.5 9.5a14 14 0 0 1 19 0M5.5 13a9.5 9.5 0 0 1 13 0M8.8 16.3a5 5 0 0 1 6.4 0"/><circle cx="12" cy="19.5" r=".9" fill="currentColor"/>',
+ lock:'<rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/>',
+ briefcase:'<rect x="3" y="7.5" width="18" height="12" rx="2.5"/><path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5M3 13h18"/>',
+ pin:'<path d="M12 21s-6.5-5.7-6.5-11a6.5 6.5 0 0 1 13 0c0 5.3-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ x:'<path d="M6 6l12 12M18 6 6 18"/>',
+ check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+ search:'<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>',
+ dice:'<rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="9" cy="9" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="15" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>',
+ sliders:'<path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.2"/><circle cx="8" cy="17" r="2.2"/>',
+ moon:'<path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.2 8.2 0 1 0 10.2 10.2z"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/>',
+ eye:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+ eyeoff:'<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/><path d="M4 4l16 16"/>',
+ copy:'<rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ refresh:'<path d="M20 11a8 8 0 0 0-14.5-3.5L4 9.5M4 4.5v5h5M4 13a8 8 0 0 0 14.5 3.5l1.5-2M20 19.5v-5h-5"/>',
+ edit:'<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19z"/><path d="m14.5 6.5 3 3"/>',
+ archive:'<rect x="3" y="4" width="18" height="4.5" rx="1.5"/><path d="M5 8.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8.5M10 12.5h4"/>',
+ trash:'<path d="M4 7h16M9.5 7V4.5h5V7M6 7l1 13h10l1-13M10 11v5M14 11v5"/>',
+ undo:'<path d="M9 14 4 9l5-5"/><path d="M4 9h10a6 6 0 0 1 0 12h-3"/>',
+ download:'<path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 20h14"/>',
+ share:'<path d="M12 15V4M7.5 8.5 12 4l4.5 4.5M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/>',
+ upload:'<path d="M12 15V4M7.5 8.5 12 4l4.5 4.5"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/>',
+ alert:'<path d="M12 4 2.5 20h19z"/><path d="M12 10v4M12 17h.01"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+ back:'<path d="M19 12H5M11 6l-6 6 6 6"/>',
+ chev:'<path d="m9 6 6 6-6 6"/>',
+ shield:'<path d="M12 3 4.5 6v5.5c0 4.5 3 8 7.5 9.5 4.5-1.5 7.5-5 7.5-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/>'
+};
+function I(n,s){s=s||18;return '<svg class="i" width="'+s+'" height="'+s+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICO[n]||ICO.pin)+'</svg>';}
+function hydrate(root){$$('[data-ico]',root).forEach(function(el){el.innerHTML=I(el.dataset.ico,+el.dataset.s||18);});}
 
 /* ====================== úložiště ====================== */
 var LS_VAULT='klicenka_vault_v1',LS_THEME='klicenka_theme';
@@ -337,6 +433,7 @@ var UI={tab:'active',cat:'all',q:'',sort:'az',open:{},revealed:{},bannerHidden:f
 function defaultData(){return {v:1,entries:[],settings:{autoLockMin:5,warnDays:14,lastBackup:null}};}
 function norm_data(d){
   d=d||{};d.entries=Array.isArray(d.entries)?d.entries:[];
+  d.entries.forEach(function(e){e.history=e.history||[];e.extras=e.extras||[];});
   d.settings=Object.assign({autoLockMin:5,warnDays:14,lastBackup:null},d.settings||{});
   return d;
 }
@@ -344,7 +441,7 @@ var saveChain=Promise.resolve();
 function save(){
   if(!S.key||!S.data)return saveChain;
   var snap=JSON.stringify(S.data),key=S.key,meta=S.meta;
-  saveChain=saveChain.then(function(){return encryptStr(snap,key,meta);}).then(writeVault).catch(function(){toast('⚠️ Uložení se nezdařilo');});
+  saveChain=saveChain.then(function(){return encryptStr(snap,key,meta);}).then(writeVault).catch(function(){toast('Uložení se nezdařilo',true);});
   return saveChain;
 }
 function getEntry(id){return S.data.entries.find(function(e){return e.id===id;});}
@@ -354,37 +451,43 @@ function touch(e){e.updatedAt=Date.now();}
 function daysLeft(e){if(!e.expiryDays)return null;return Math.ceil((e.pwd.since+e.expiryDays*DAY-Date.now())/DAY);}
 function pwState(e){var dl=daysLeft(e);if(dl===null)return 'ok';if(dl<0)return 'expired';if(dl<=S.data.settings.warnDays)return 'soon';return 'ok';}
 
-/* ====================== kategorie, ikony ====================== */
+/* ====================== kategorie, ikony záznamů ====================== */
 var CATS=[
- {id:'mail',icon:'📧',name:'E-mail'},{id:'fin',icon:'🏦',name:'Finance'},{id:'shop',icon:'🛒',name:'Nákupy'},
- {id:'social',icon:'💬',name:'Sociální sítě'},{id:'home',icon:'🏠',name:'Domov a služby'},{id:'fun',icon:'🎮',name:'Zábava'},
- {id:'gov',icon:'🏛️',name:'Úřady a zdraví'},{id:'other',icon:'📌',name:'Ostatní'}];
-var ICONS=['🔑','📧','🏦','💳','🛒','📦','💬','📷','🎵','🎮','🎬','☁️','🏠','📱','💻','🌐','🏛️','🩺','✈️','🚗','📚','🧾','⚡','🔒'];
+ {id:'work',icon:'briefcase',name:'Práce'},{id:'mail',icon:'mail',name:'E-mail'},{id:'fin',icon:'bank',name:'Finance'},{id:'shop',icon:'cart',name:'Nákupy'},
+ {id:'social',icon:'chat',name:'Sociální sítě'},{id:'home',icon:'home',name:'Domov a služby'},{id:'fun',icon:'gamepad',name:'Zábava'},
+ {id:'gov',icon:'building',name:'Úřady a zdraví'},{id:'other',icon:'pin',name:'Ostatní'}];
+var ICONS=['key','briefcase','mail','bank','card','cart','box','chat','camera','music','gamepad','film','cloud','home','phone','laptop','globe','building','heart','plane','car','book','receipt','wifi','lock','pin'];
 function catOf(id){return CATS.find(function(c){return c.id===id;})||CATS[CATS.length-1];}
+function entryIcon(e){return ICO[e.icon]?e.icon:catOf(e.cat).icon;}
 function toneOf(name){var h=0;for(var i=0;i<name.length;i++)h=(h*31+name.charCodeAt(i))>>>0;return h%6;}
 
 /* ====================== téma ====================== */
 function effTheme(){var p=getTheme();return p==='auto'?(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):p;}
 function applyTheme(){
   var t=effTheme();document.documentElement.setAttribute('data-theme',t);
-  var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='dark'?'#15131e':'#f4efff');
+  var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',t==='dark'?'#0e0c1a':'#f1ecfc');
+  $$('[data-themeicon]').forEach(function(b){b.innerHTML=I(t==='dark'?'sun':'moon',18);});
 }
 function toggleTheme(){setThemePref(effTheme()==='dark'?'light':'dark');applyTheme();}
 
 /* ====================== toast, schránka ====================== */
 var toastT=null;
-function toast(msg){var t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},2600);}
+function toast(msg,warn){
+  var t=$('#toast');t.innerHTML=I(warn?'alert':'check',16)+'<span></span>';t.lastChild.textContent=msg;
+  t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},2600);
+}
 var clipT=null;
+function wipeClip(){try{var p=navigator.clipboard.writeText(' ');if(p&&p.catch)p.catch(function(){});}catch(e){}}
 async function copyText(text,label,secret){
   var ok=false;
   try{await navigator.clipboard.writeText(text);ok=true;}catch(e){
     try{var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ok=document.execCommand('copy');document.body.removeChild(ta);}catch(e2){}
   }
-  if(!ok){toast('Kopírování se nepovedlo');return;}
+  if(!ok){toast('Kopírování se nepovedlo',true);return;}
   if(secret){
-    toast('📋 '+label+' zkopírováno · schránka se za 30 s vymaže');
-    clearTimeout(clipT);clipT=setTimeout(function(){try{navigator.clipboard.writeText(' ');}catch(e){}},30000);
-  }else toast('📋 '+label+' zkopírováno');
+    toast(label+' zkopírováno · schránka se za 30 s vymaže');
+    clearTimeout(clipT);clipT=setTimeout(function(){wipeClip();},30000);
+  }else toast(label+' zkopírováno');
 }
 
 /* ====================== generátor ====================== */
@@ -421,12 +524,12 @@ function bindMeter(input,bar,lab){
 }
 function genPanelHtml(){
   var o=genOpts;
-  return '<div class="genpanel"><div class="top"><span>🎲 Generátor</span><span>Délka: <b class="glen">'+o.len+'</b></span></div>'+
+  return '<div class="genpanel"><div class="top"><span>'+I('dice',16)+' Generátor</span><span>Délka: <b class="glen">'+o.len+'</b></span></div>'+
   '<input type="range" class="grange" min="8" max="40" value="'+o.len+'" aria-label="Délka hesla">'+
   '<div class="row2"><label class="chk"><input type="checkbox" class="gup"'+(o.up?' checked':'')+'> Velká A–Z</label><label class="chk"><input type="checkbox" class="glow"'+(o.low?' checked':'')+'> Malá a–z</label>'+
   '<label class="chk"><input type="checkbox" class="gdig"'+(o.dig?' checked':'')+'> Čísla 0–9</label><label class="chk"><input type="checkbox" class="gsym"'+(o.sym?' checked':'')+'> Symboly !@#</label></div>'+
   '<label class="chk"><input type="checkbox" class="gamb"'+(o.amb?' checked':'')+'> Bez podobných znaků (0 O 1 l I)</label>'+
-  '<button class="btn pri ggo" type="button" style="margin-top:8px;width:100%">🎲 Vygenerovat</button></div>';
+  '<button class="btn pri ggo" type="button" style="margin-top:8px;width:100%">'+I('refresh',16)+' Vygenerovat</button></div>';
 }
 function bindGenPanel(root,onGen){
   function read(){genOpts={len:+$('.grange',root).value,up:$('.gup',root).checked,low:$('.glow',root).checked,dig:$('.gdig',root).checked,sym:$('.gsym',root).checked,amb:$('.gamb',root).checked};$('.glen',root).textContent=genOpts.len;}
@@ -467,17 +570,20 @@ function confirmBox(o){
   });
 }
 function secretInput(id,val,ph){
-  return '<div class="pwrow"><input class="in" id="'+id+'" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="'+esc(val||'')+'" placeholder="'+esc(ph||'')+'"><button class="icon-btn eyebtn" type="button" title="Zobrazit / skrýt" aria-label="Zobrazit nebo skrýt">👁</button></div>';
+  return '<div class="pwrow"><input class="in" id="'+id+'" type="password" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" value="'+esc(val||'')+'" placeholder="'+esc(ph||'')+'"><button class="icon-btn eyebtn" type="button" title="Zobrazit / skrýt" aria-label="Zobrazit nebo skrýt">'+I('eye')+'</button></div>';
 }
-function bindEyes(root){$$('.eyebtn',root).forEach(function(b){if(b._b)return;b._b=1;b.addEventListener('click',function(){var i=b.parentNode.querySelector('input');i.type=i.type==='password'?'text':'password';});});}
+function bindEyes(root){$$('.eyebtn',root).forEach(function(b){if(b._b)return;b._b=1;b.addEventListener('click',function(){var i=b.parentNode.querySelector('input');i.type=i.type==='password'?'text':'password';b.innerHTML=I(i.type==='password'?'eye':'eyeoff');});});}
+
+/* ====================== vyhledávání (s křížkem) ====================== */
+function setQ(v){UI.q=v;$('#q').value=v;$('#qClear').hidden=!v;}
 
 /* ====================== zamykací obrazovka ====================== */
 var lockMode='unlock',pendingBlob=null,lastActive=Date.now();
-function lkErr(msg){var e=$('#lkErr');e.hidden=!msg;e.textContent=msg||'';}
+function lkErr(msg,info){var e=$('#lkErr');e.hidden=!msg;e.textContent=msg||'';e.style.background=info?'var(--t3)':'';e.style.color=info?'var(--tx)':'';}
 function showLock(mode,msg){
   lockMode=mode;
   $('#lock').hidden=false;$('#app').hidden=true;$('#fab').hidden=true;
-  $('#lkPw').value='';$('#lkPw2').value='';$('#lkPw').type='password';
+  $('#lkPw').value='';$('#lkPw2').value='';$('#lkPw').type='password';$('#lkEye').innerHTML=I('eye');
   $('#lkSetup').hidden=mode!=='setup';
   $('#lkNoStore').hidden=storageOK;
   var sub,lbl,go;
@@ -486,35 +592,33 @@ function showLock(mode,msg){
   else{sub='Zadej hlavní heslo a odemkni si trezor.';lbl='Hlavní heslo';go='Odemknout';$('#lkPw').autocomplete='current-password';}
   $('#lockSub').textContent=sub;$('#lkPwLbl').textContent=lbl;$('#lkGo').textContent=go;
   $('#lkForgot').hidden=mode!=='unlock';
-  $('#lkRestore').textContent=mode==='restore'?'← Zpět':'📥 Obnovit ze zálohy';
+  $('#lkRestore').textContent=mode==='restore'?'Zpět':'Obnovit ze zálohy';
   $('#lkRestore').hidden=false;
   $('#lkLinks').style.justifyContent=mode==='unlock'?'space-between':'center';
-  lkErr(msg||'');
-  if(msg&&mode==='unlock'){var e=$('#lkErr');e.style.background='var(--t3)';e.style.color='var(--tx)';}
-  else{$('#lkErr').style.background='';$('#lkErr').style.color='';}
+  lkErr(msg||'',mode==='unlock');
   setTimeout(function(){if(!('ontouchstart' in window))$('#lkPw').focus();},50);
 }
 function enterApp(){
   $('#lock').hidden=true;$('#app').hidden=false;$('#fab').hidden=false;
   $('#lkPw').value='';$('#lkPw2').value='';pendingBlob=null;
-  UI.q='';$('#q').value='';UI.tab='active';UI.cat='all';UI.sort='az';$('#sort').value='az';UI.bannerHidden=false;
+  setQ('');UI.tab='active';UI.cat='all';UI.sort='az';$('#sort').value='az';UI.bannerHidden=false;
   lastActive=Date.now();render(true);
 }
 function lockNow(msg){
   S={data:null,key:null,meta:null};
   Object.keys(UI.revealed).forEach(function(k){delete UI.revealed[k];});UI.open={};
-  closeModal();$('#list').innerHTML='';$('#q').value='';
-  try{navigator.clipboard.writeText(' ');}catch(e){}
+  closeModal();$('#list').innerHTML='';setQ('');
+  wipeClip();
   showLock('unlock',msg);
 }
-$('#lkEye').addEventListener('click',function(){var i=$('#lkPw');i.type=i.type==='password'?'text':'password';});
+$('#lkEye').addEventListener('click',function(){var i=$('#lkPw');i.type=i.type==='password'?'text':'password';this.innerHTML=I(i.type==='password'?'eye':'eyeoff');});
 bindMeter($('#lkPw'),$('#lkMeter'),$('#lkMeterL'));
 $('#lkPw').addEventListener('input',function(){if(lockMode!=='setup')return;if(!$('#lkPw').value)$('#lkMeterL').textContent='Aspoň 8 znaků, ideálně delší věta.';});
 $('#lockForm').addEventListener('submit',async function(ev){
   ev.preventDefault();lkErr('');
   var pw=$('#lkPw').value,btn=$('#lkGo'),label=btn.textContent;
   if(!pw){lkErr('Zadej heslo.');return;}
-  btn.disabled=true;btn.textContent='⏳ Chvilku…';
+  btn.disabled=true;btn.textContent='Chvilku…';
   try{
     if(lockMode==='setup'){
       if(pw.length<8){lkErr('Hlavní heslo musí mít aspoň 8 znaků.');return;}
@@ -522,10 +626,10 @@ $('#lockForm').addEventListener('submit',async function(ev){
       var salt=crypto.getRandomValues(new Uint8Array(16));
       S.meta={iter:ITER,salt:toB64(salt)};
       S.key=await deriveKey(pw,salt,ITER);S.data=defaultData();
-      await save();enterApp();toast('🗝️ Trezor je připravený');
+      await save();enterApp();toast('Trezor je připravený');
     }else if(lockMode==='restore'){
       var r=await decryptBlob(pendingBlob,pw);
-      writeVault(pendingBlob);S.data=norm_data(r.data);S.key=r.key;S.meta=r.meta;enterApp();toast('📥 Záloha obnovena');
+      writeVault(pendingBlob);S.data=norm_data(r.data);S.key=r.key;S.meta=r.meta;enterApp();toast('Záloha obnovena');
     }else{
       var r2=await decryptBlob(readVault(),pw);
       S.data=norm_data(r2.data);S.key=r2.key;S.meta=r2.meta;enterApp();
@@ -533,7 +637,6 @@ $('#lockForm').addEventListener('submit',async function(ev){
   }catch(e){
     var c=$('#lockCard');c.classList.remove('shake');void c.offsetWidth;c.classList.add('shake');
     lkErr(lockMode==='setup'?'Něco se nepovedlo, zkus to znovu.':'Nesprávné heslo (nebo poškozený soubor).');
-    $('#lkErr').style.background='';$('#lkErr').style.color='';
   }finally{btn.disabled=false;btn.textContent=label;}
 });
 $('#lkForgot').addEventListener('click',function(){
@@ -570,17 +673,17 @@ function frow(lbl,key,secret){
   var shown=!secret||UI.revealed[key];
   var v=shown?esc(resolve(key)):'••••••••';
   return '<div class="frow"><span class="lbl" title="'+esc(lbl)+'">'+esc(lbl)+'</span><span class="val'+(secret?' mono':'')+(shown?'':' dots')+'">'+v+'</span>'+
-   (secret?'<button class="icon-btn sm" type="button" data-act="eye" data-k="'+key+'" aria-label="'+(shown?'Skrýt':'Zobrazit')+'" title="'+(shown?'Skrýt':'Zobrazit')+'">'+(shown?'🙈':'👁')+'</button>':'')+
-   '<button class="icon-btn sm" type="button" data-act="copy" data-k="'+key+'" data-s="'+(secret?1:0)+'" data-l="'+esc(lbl)+'" aria-label="Kopírovat" title="Kopírovat">📋</button></div>';
+   (secret?'<button class="icon-btn sm" type="button" data-act="eye" data-k="'+key+'" aria-label="'+(shown?'Skrýt':'Zobrazit')+'" title="'+(shown?'Skrýt':'Zobrazit')+'">'+I(shown?'eyeoff':'eye',16)+'</button>':'')+
+   '<button class="icon-btn sm" type="button" data-act="copy" data-k="'+key+'" data-s="'+(secret?1:0)+'" data-l="'+esc(lbl)+'" aria-label="Kopírovat" title="Kopírovat">'+I('copy',16)+'</button></div>';
 }
 function cardHtml(e,hit){
   var c=catOf(e.cat),st=pwState(e),dl=daysLeft(e),u=safeUrl(e.url);
   var chipCls,chipTxt;
-  if(e.status==='trash'){chipCls='gray';chipTxt='🗑️ V koši';}
-  else if(e.status==='archived'){chipCls='gray';chipTxt='📦 Archiv';}
+  if(e.status==='trash'){chipCls='gray';chipTxt='V koši';}
+  else if(e.status==='archived'){chipCls='gray';chipTxt='Archiv';}
   else if(st==='expired'){chipCls='expired';chipTxt='Vypršelo';}
   else if(st==='soon'){chipCls='soon';chipTxt='Brzy vyprší';}
-  else{chipCls='ok';chipTxt='✓ Platí';}
+  else{chipCls='ok';chipTxt=I('check',13)+'Platí';}
   var meta;
   if(e.status==='trash')meta='V koši od '+fmt(e.trashedAt||e.updatedAt)+' · můžeš obnovit';
   else if(e.status==='archived')meta='Archivováno '+fmt(e.archivedAt||e.updatedAt)+' · heslo platilo od '+fmt(e.pwd.since);
@@ -595,25 +698,25 @@ function cardHtml(e,hit){
   var h='';
   if(e.history.length){
     var open=!!UI.open[e.id];
-    h='<div class="hist"><button class="histtoggle" type="button" data-act="hist" aria-expanded="'+open+'">'+(open?'▾':'▸')+' 🕘 Historie hesel ('+e.history.length+')</button>';
+    h='<div class="hist"><button class="histtoggle'+(open?' open':'')+'" type="button" data-act="hist" aria-expanded="'+open+'"><span class="chev">'+I('chev',14)+'</span>'+I('clock',15)+' Historie hesel ('+e.history.length+')</button>';
     if(open){
       for(var i=e.history.length-1;i>=0;i--){
         var it=e.history[i],k=e.id+'|h|'+i,sh=UI.revealed[k];
         h+='<div class="hitem"><div class="hd"><small>platilo '+fmt(it.from)+' – '+fmt(it.to)+'</small><span class="mono'+(sh?'':' dots')+'">'+(sh?esc(it.value):'••••••••')+'</span></div>'+
-        '<button class="icon-btn sm" type="button" data-act="eye" data-k="'+k+'" aria-label="Zobrazit nebo skrýt">'+(sh?'🙈':'👁')+'</button>'+
-        '<button class="icon-btn sm" type="button" data-act="copy" data-k="'+k+'" data-s="1" data-l="Staré heslo" aria-label="Kopírovat">📋</button></div>';
+        '<button class="icon-btn sm" type="button" data-act="eye" data-k="'+k+'" aria-label="Zobrazit nebo skrýt">'+I(sh?'eyeoff':'eye',16)+'</button>'+
+        '<button class="icon-btn sm" type="button" data-act="copy" data-k="'+k+'" data-s="1" data-l="Staré heslo" aria-label="Kopírovat">'+I('copy',16)+'</button></div>';
       }
     }
     h+='</div>';
   }
   var acts;
-  if(e.status==='active')acts='<button class="btn pri" type="button" data-act="change">🔄 Změnit heslo</button><button class="icon-btn" type="button" data-act="edit" title="Upravit" aria-label="Upravit">✏️</button><button class="icon-btn" type="button" data-act="archive" title="Archivovat (už to nepoužívám)" aria-label="Archivovat">📦</button><button class="icon-btn bad" type="button" data-act="trash" title="Do koše" aria-label="Do koše">🗑️</button>';
-  else if(e.status==='archived')acts='<button class="btn" type="button" data-act="restore">↩️ Vrátit mezi aktivní</button><button class="icon-btn" type="button" data-act="edit" title="Upravit" aria-label="Upravit">✏️</button><button class="icon-btn bad" type="button" data-act="trash" title="Do koše" aria-label="Do koše">🗑️</button>';
-  else acts='<button class="btn" type="button" data-act="restore">↩️ Obnovit</button><button class="btn danger" type="button" data-act="purge">Smazat trvale</button>';
+  if(e.status==='active')acts='<button class="btn pri" type="button" data-act="change">'+I('refresh',16)+'Změnit heslo</button><button class="icon-btn" type="button" data-act="edit" title="Upravit" aria-label="Upravit">'+I('edit',17)+'</button><button class="icon-btn" type="button" data-act="archive" title="Archivovat (už to nepoužívám)" aria-label="Archivovat">'+I('archive',17)+'</button><button class="icon-btn bad" type="button" data-act="trash" title="Do koše" aria-label="Do koše">'+I('trash',17)+'</button>';
+  else if(e.status==='archived')acts='<button class="btn" type="button" data-act="restore">'+I('undo',16)+'Vrátit mezi aktivní</button><button class="icon-btn" type="button" data-act="edit" title="Upravit" aria-label="Upravit">'+I('edit',17)+'</button><button class="icon-btn bad" type="button" data-act="trash" title="Do koše" aria-label="Do koše">'+I('trash',17)+'</button>';
+  else acts='<button class="btn" type="button" data-act="restore">'+I('undo',16)+'Obnovit</button><button class="btn danger" type="button" data-act="purge">Smazat trvale</button>';
   return '<article class="card tone'+toneOf(e.name)+' st-'+(e.status==='active'?st:e.status)+'" data-id="'+e.id+'">'+
-   '<div class="ctop"><div class="ico" aria-hidden="true">'+esc(e.icon||c.icon)+'</div><div class="ttl"><h3 title="'+esc(e.name)+'">'+esc(e.name)+'</h3><div class="sub">'+c.icon+' '+esc(c.name)+(u?' · <a href="'+esc(u.href)+'" target="_blank" rel="noopener noreferrer">'+esc(u.host)+'</a>':'')+'</div></div><span class="chip '+chipCls+'">'+chipTxt+'</span></div>'+
+   '<div class="ctop"><div class="ico" aria-hidden="true">'+I(entryIcon(e),24)+'</div><div class="ttl"><h3 title="'+esc(e.name)+'">'+esc(e.name)+'</h3><div class="sub">'+I(c.icon,13)+'<span>'+esc(c.name)+'</span>'+(u?'<span>·</span><a href="'+esc(u.href)+'" target="_blank" rel="noopener noreferrer">'+esc(u.host)+'</a>':'')+'</div></div><span class="chip '+chipCls+'">'+chipTxt+'</span></div>'+
    '<div class="fields">'+f+'</div><div class="meta '+metaCls+'">'+meta+'</div>'+
-   (hit==='hist'?'<div class="note">🔎 Hledaný text se našel ve <b>starém heslu</b> – otevři historii.</div>':'')+
+   (hit==='hist'?'<div class="note">'+I('search',15)+'<span>Hledaný text se našel ve <b>starém heslu</b>, otevři historii.</span></div>':'')+
    (e.note?'<div class="note">'+esc(e.note)+'</div>':'')+h+'<div class="acts">'+acts+'</div></article>';
 }
 function render(animate){
@@ -628,7 +731,7 @@ function render(animate){
     return '<button type="button" class="tab'+(!q&&UI.tab===t[0]?' on':'')+'" role="tab" data-tab="'+t[0]+'">'+t[1]+'<b>'+counts[t[0]]+'</b></button>';
   }).join('');
   $('#cats').innerHTML='<button type="button" class="chipbtn'+(UI.cat==='all'?' on':'')+'" data-cat="all">Vše</button>'+CATS.map(function(c){
-    return '<button type="button" class="chipbtn'+(UI.cat===c.id?' on':'')+'" data-cat="'+c.id+'">'+c.icon+' '+esc(c.name)+'</button>';}).join('');
+    return '<button type="button" class="chipbtn'+(UI.cat===c.id?' on':'')+'" data-cat="'+c.id+'">'+I(c.icon,15)+esc(c.name)+'</button>';}).join('');
   var rows=[];
   all.forEach(function(e){
     if(UI.cat!=='all'&&e.cat!==UI.cat)return;
@@ -656,10 +759,10 @@ function render(animate){
     return a.e.name.localeCompare(b.e.name,'cs');
   });
   var banners='';
-  if(!storageOK)banners+='<div class="banner">⚠️ <span>Prohlížeč teď neukládá data trvale. Použij Nastavení → Export zálohy.</span></div>';
+  if(!storageOK)banners+='<div class="banner"><span class="msg">'+I('alert',18)+'<span>Prohlížeč teď neukládá data trvale. Použij Nastavení → Stáhnout zálohu.</span></span></div>';
   var lb=S.data.settings.lastBackup;
   if(!UI.bannerHidden&&all.length&&(!lb||Date.now()-lb>30*DAY))
-    banners+='<div class="banner info"><span>💾 '+(lb?'Poslední záloha je z '+fmt(lb)+'.':'Zatím jsi nestáhla žádnou zálohu.')+' Doporučuju zálohovat po větších změnách.</span><span><button class="btn" type="button" id="bnBackup">Zálohovat</button> <button class="btn ghost" type="button" id="bnHide">Později</button></span></div>';
+    banners+='<div class="banner info"><span class="msg">'+I('info',18)+'<span>'+(lb?'Poslední záloha je z '+fmt(lb)+'.':'Zatím jsi nestáhla žádnou zálohu.')+' Doporučuju zálohovat po větších změnách.</span></span><span><button class="btn" type="button" id="bnBackup">Zálohovat</button> <button class="btn ghost" type="button" id="bnHide">Později</button></span></div>';
   $('#banners').innerHTML=banners;
   var b1=$('#bnBackup');if(b1)b1.addEventListener('click',function(){exportBackup(false);});
   var b2=$('#bnHide');if(b2)b2.addEventListener('click',function(){UI.bannerHidden=true;render();});
@@ -668,19 +771,21 @@ function render(animate){
   if(rows.length)list.innerHTML=rows.map(function(r){return cardHtml(r.e,r.hit);}).join('');
   else{
     var msg;
-    if(q)msg=['🔍','Nic nenalezeno','Zkus jiné slovo. Hledá se i ve starých heslech.'];
-    else if(!all.length)msg=['🗝️','Zatím tu nic není','Přidej první heslo tlačítkem + a už ti nic neuteče.'];
-    else if(UI.tab==='soon')msg=['🌿','Nic nevyprší','Žádné heslo nemá blízko k vypršení.'];
-    else if(UI.tab==='archived')msg=['📦','Archiv je prázdný','Sem se dává to, co už nepoužíváš, ale chceš si to pamatovat.'];
-    else if(UI.tab==='trash')msg=['🍃','Koš je prázdný','Smazané záznamy tu zůstanou, dokud je trvale nesmažeš.'];
-    else msg=['🗝️','V téhle kategorii nic není','Zkus jinou kategorii nebo přidej nové heslo.'];
-    list.innerHTML='<div class="empty"><span class="big">'+msg[0]+'</span><h3>'+msg[1]+'</h3><div>'+msg[2]+'</div></div>';
+    if(q)msg=['search','Nic nenalezeno','Zkus jiné slovo. Hledá se i ve starých heslech.'];
+    else if(!all.length)msg=['key','Zatím tu nic není','Přidej první heslo tlačítkem + a už ti nic neuteče.'];
+    else if(UI.tab==='soon')msg=['shield','Nic nevyprší','Žádné heslo nemá blízko k vypršení.'];
+    else if(UI.tab==='archived')msg=['archive','Archiv je prázdný','Sem se dává to, co už nepoužíváš, ale chceš si to pamatovat.'];
+    else if(UI.tab==='trash')msg=['trash','Koš je prázdný','Smazané záznamy tu zůstanou, dokud je trvale nesmažeš.'];
+    else msg=['key','V téhle kategorii nic není','Zkus jinou kategorii nebo přidej nové heslo.'];
+    list.innerHTML='<div class="empty"><div class="big">'+I(msg[0],40)+'</div><h3>'+msg[1]+'</h3><div>'+msg[2]+'</div></div>';
   }
   if(animate){list.classList.add('anim');setTimeout(function(){list.classList.remove('anim');},450);}
 }
-$('#tabs').addEventListener('click',function(ev){var b=ev.target.closest('[data-tab]');if(!b)return;UI.tab=b.dataset.tab;UI.q='';$('#q').value='';render(true);});
+$('#tabs').addEventListener('click',function(ev){var b=ev.target.closest('[data-tab]');if(!b)return;UI.tab=b.dataset.tab;setQ('');render(true);});
 $('#cats').addEventListener('click',function(ev){var b=ev.target.closest('[data-cat]');if(!b)return;UI.cat=b.dataset.cat;render(true);});
-$('#q').addEventListener('input',function(){UI.q=this.value;render();});
+$('#q').addEventListener('input',function(){setQ(this.value);render();});
+$('#q').addEventListener('keydown',function(e){if(e.key==='Escape'&&this.value){e.preventDefault();setQ('');render();}});
+$('#qClear').addEventListener('click',function(){setQ('');render(true);$('#q').focus();});
 $('#sort').addEventListener('change',function(){UI.sort=this.value;render(true);});
 
 /* ====================== akce na kartě ====================== */
@@ -699,9 +804,9 @@ $('#list').addEventListener('click',function(ev){
   if(act==='hist'){UI.open[id]=!UI.open[id];return render();}
   if(act==='change')return openChange(id);
   if(act==='edit')return openEntryForm(id);
-  if(act==='archive'){e.status='archived';e.archivedAt=Date.now();touch(e);save();render();return toast('📦 Přesunuto do archivu');}
-  if(act==='restore'){e.status='active';touch(e);save();render();return toast('↩️ Vráceno mezi aktivní');}
-  if(act==='trash'){e.status='trash';e.trashedAt=Date.now();touch(e);save();render();return toast('🗑️ Je v koši, kdykoli půjde obnovit');}
+  if(act==='archive'){e.status='archived';e.archivedAt=Date.now();touch(e);save();render();return toast('Přesunuto do archivu');}
+  if(act==='restore'){e.status='active';touch(e);save();render();return toast('Vráceno mezi aktivní');}
+  if(act==='trash'){e.status='trash';e.trashedAt=Date.now();touch(e);save();render();return toast('Je v koši, kdykoli půjde obnovit');}
   if(act==='purge')return confirmBox({title:'Smazat trvale?',danger:true,ok:'Smazat trvale',text:'Záznam <b>'+esc(e.name)+'</b> včetně celé historie hesel se nenávratně smaže.'}).then(function(ok){
     if(!ok)return;S.data.entries=S.data.entries.filter(function(x){return x.id!==id;});save();render();toast('Smazáno trvale');});
 });
@@ -709,31 +814,32 @@ $('#list').addEventListener('click',function(ev){
 /* ====================== formulář záznamu ====================== */
 function openEntryForm(id){
   var e=id?getEntry(id):null,isNew=!e;
-  var d=e||{name:'',cat:'other',icon:'🔑',username:'',url:'',note:'',expiryDays:0,extras:[]};
+  var d=e||{name:'',cat:'other',icon:'pin',username:'',url:'',note:'',expiryDays:0,extras:[]};
+  var curIcon=isNew?catOf(d.cat).icon:entryIcon(d);
   var iconPicked=!isNew;
-  var html='<h2>'+(isNew?'🆕 Nové heslo':'✏️ Upravit záznam')+'</h2><p class="lead">'+(isNew?'Vyplň aspoň název a heslo.':'Heslo se mění tlačítkem „Změnit heslo“, aby se staré uložilo do historie.')+'</p>'+
+  var html='<h2>'+I(isNew?'plus':'edit',20)+(isNew?'Nové heslo':'Upravit záznam')+'</h2><p class="lead">'+(isNew?'Vyplň aspoň název a heslo.':'Heslo se mění tlačítkem „Změnit heslo“, aby se staré uložilo do historie.')+'</p>'+
   '<form id="ef" autocomplete="off" novalidate>'+
   '<label class="f" for="efName">Název *</label><input class="in" id="efName" maxlength="80" placeholder="např. Netflix, banka, wifi doma" value="'+esc(d.name)+'">'+
-  '<div class="row2"><div><label class="f" for="efCat">Kategorie</label><select class="in" id="efCat">'+CATS.map(function(c){return '<option value="'+c.id+'"'+(c.id===d.cat?' selected':'')+'>'+c.icon+' '+esc(c.name)+'</option>';}).join('')+'</select></div>'+
+  '<div class="row2"><div><label class="f" for="efCat">Kategorie</label><select class="in" id="efCat">'+CATS.map(function(c){return '<option value="'+c.id+'"'+(c.id===d.cat?' selected':'')+'>'+esc(c.name)+'</option>';}).join('')+'</select></div>'+
   '<div><label class="f" for="efExp">Platnost (dní)</label><input class="in" id="efExp" type="number" inputmode="numeric" min="0" max="3650" value="'+(d.expiryDays||0)+'"></div></div>'+
   '<div class="chips" id="efExpChips">'+[[0,'Nevyprší'],[30,'30 dní'],[60,'60 dní'],[90,'90 dní'],[180,'180 dní'],[365,'1 rok']].map(function(x){return '<button type="button" class="chipbtn" data-d="'+x[0]+'">'+x[1]+'</button>';}).join('')+'</div>'+
   '<div class="hint">0 = heslo nevyprší. Jinak ti Klíčenka řekne, kdy je čas ho změnit.</div>'+
-  '<label class="f">Ikona</label><div class="icopick" id="efIcons">'+ICONS.map(function(i){return '<button type="button" data-i="'+i+'" class="'+(i===d.icon?'on':'')+'">'+i+'</button>';}).join('')+'</div>'+
+  '<label class="f">Ikona</label><div class="icopick" id="efIcons">'+ICONS.map(function(i){return '<button type="button" data-i="'+i+'" aria-label="'+i+'" class="'+(i===curIcon?'on':'')+'">'+I(i,20)+'</button>';}).join('')+'</div>'+
   '<label class="f" for="efUser">Uživatelské jméno / e-mail</label><input class="in" id="efUser" autocapitalize="off" autocorrect="off" spellcheck="false" value="'+esc(d.username)+'">';
   if(isNew)html+='<label class="f" for="efPw">Heslo *</label>'+secretInput('efPw','','')+'<div class="meter"><i id="efMeter"></i></div><div class="meter-l" id="efMeterL"></div>'+
-    '<button type="button" class="btn" id="efGenToggle" style="margin-top:8px">🎲 Vygenerovat silné heslo</button><div id="efGen" hidden>'+genPanelHtml()+'</div>';
+    '<button type="button" class="btn" id="efGenToggle" style="margin-top:8px">'+I('dice',16)+'Vygenerovat silné heslo</button><div id="efGen" hidden>'+genPanelHtml()+'</div>';
   html+='<label class="f" for="efUrl">Odkaz (nepovinné)</label><input class="in" id="efUrl" inputmode="url" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="např. netflix.com" value="'+esc(d.url)+'">'+
   '<label class="f" for="efNote">Poznámka (nepovinné)</label><textarea class="in" id="efNote" rows="2">'+esc(d.note)+'</textarea>'+
-  '<label class="f">Další pole (PIN, bezpečnostní otázka…)</label><div id="efEx"></div><button type="button" class="btn ghost" id="efAddEx">＋ Přidat pole</button>'+
+  '<label class="f">Další pole (PIN, bezpečnostní otázka…)</label><div id="efEx"></div><button type="button" class="btn ghost" id="efAddEx">'+I('plus',16)+'Přidat pole</button>'+
   '<datalist id="exlist"><option value="PIN"><option value="Bezpečnostní otázka"><option value="Odpověď"><option value="Kód"><option value="Zákaznické číslo"></datalist>'+
   '<div class="err" id="efErr" hidden></div>'+
-  '<div class="foot"><button type="button" class="btn ghost" id="efCancel">Zrušit</button><button type="submit" class="btn pri">💾 Uložit</button></div></form>';
+  '<div class="foot"><button type="button" class="btn ghost" id="efCancel">Zrušit</button><button type="submit" class="btn pri">Uložit</button></div></form>';
   openModal(html,function(sh){
     function addEx(l,v){
       var wrap=document.createElement('div');wrap.className='exrow';
       wrap.innerHTML='<input class="in ex-l" list="exlist" maxlength="40" placeholder="Název" value="'+esc(l||'')+'">'+
       '<input class="in ex-v" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Hodnota" value="'+esc(v||'')+'">'+
-      '<button class="icon-btn eyebtn" type="button" aria-label="Zobrazit nebo skrýt">👁</button><button class="icon-btn bad exdel" type="button" aria-label="Odebrat">✕</button>';
+      '<button class="icon-btn eyebtn" type="button" aria-label="Zobrazit nebo skrýt">'+I('eye')+'</button><button class="icon-btn bad exdel" type="button" aria-label="Odebrat">'+I('x',16)+'</button>';
       $('#efEx',sh).appendChild(wrap);bindEyes(wrap);
       $('.exdel',wrap).addEventListener('click',function(){wrap.remove();});
     }
@@ -747,12 +853,11 @@ function openEntryForm(id){
     $('#efCat',sh).addEventListener('change',function(){
       if(iconPicked)return;var ic=catOf(this.value).icon;
       $$('#efIcons button',sh).forEach(function(x){x.classList.toggle('on',x.dataset.i===ic);});
-      sh.dataset.autoIcon=ic;
     });
     if(isNew){
       bindMeter($('#efPw',sh),$('#efMeter',sh),$('#efMeterL',sh));
       $('#efGenToggle',sh).addEventListener('click',function(){$('#efGen',sh).hidden=!$('#efGen',sh).hidden;});
-      bindGenPanel($('#efGen',sh),function(p){var i=$('#efPw',sh);i.value=p;i.type='text';i.dispatchEvent(new Event('input'));});
+      bindGenPanel($('#efGen',sh),function(p){var i=$('#efPw',sh);i.value=p;i.type='text';$('.eyebtn',sh).innerHTML=I('eyeoff');i.dispatchEvent(new Event('input'));});
     }
     $('#efCancel',sh).addEventListener('click',closeModal);
     $('#ef',sh).addEventListener('submit',function(ev){
@@ -768,9 +873,9 @@ function openEntryForm(id){
       var f={name:name,cat:$('#efCat',sh).value,icon:icon,username:$('#efUser',sh).value.trim(),url:$('#efUrl',sh).value.trim(),note:$('#efNote',sh).value.trim(),expiryDays:exp,extras:extras};
       if(isNew){
         S.data.entries.push(Object.assign({id:uid(),pwd:{value:pw,since:now},history:[],status:'active',createdAt:now,updatedAt:now},f));
-        UI.tab='active';UI.q='';$('#q').value='';
+        UI.tab='active';setQ('');
       }else{Object.assign(e,f);touch(e);}
-      save();closeModal();render(true);toast(isNew?'✅ Uloženo':'✅ Změny uloženy');
+      save();closeModal();render(true);toast(isNew?'Uloženo':'Změny uloženy');
     });
   });
 }
@@ -778,18 +883,18 @@ function openEntryForm(id){
 /* ====================== změna hesla ====================== */
 function openChange(id){
   var e=getEntry(id);if(!e)return;
-  openModal('<h2>🔄 Změnit heslo</h2><p class="lead">'+esc(e.icon||'')+' <b>'+esc(e.name)+'</b></p>'+
+  openModal('<h2>'+I('refresh',20)+'Změnit heslo</h2><p class="lead"><b>'+esc(e.name)+'</b></p>'+
   '<form id="cf" autocomplete="off" novalidate>'+
   '<label class="opt"><input type="radio" name="cm" value="new" checked><span><b>Heslo se změnilo</b><small>Staré heslo se uloží do historie s datem, nové začne platit od dneška.</small></span></label>'+
   '<label class="opt"><input type="radio" name="cm" value="fix"><span><b>Jen oprava překlepu</b><small>Staré heslo se přepíše a historie se nezmění.</small></span></label>'+
   '<label class="f" for="cfPw">Nové heslo</label>'+secretInput('cfPw','','')+'<div class="meter"><i id="cfMeter"></i></div><div class="meter-l" id="cfMeterL"></div>'+
-  '<button type="button" class="btn" id="cfGenToggle" style="margin-top:8px">🎲 Vygenerovat silné heslo</button><div id="cfGen" hidden>'+genPanelHtml()+'</div>'+
+  '<button type="button" class="btn" id="cfGenToggle" style="margin-top:8px">'+I('dice',16)+'Vygenerovat silné heslo</button><div id="cfGen" hidden>'+genPanelHtml()+'</div>'+
   '<div class="err" id="cfErr" hidden></div>'+
-  '<div class="foot"><button type="button" class="btn ghost" id="cfCancel">Zrušit</button><button type="submit" class="btn pri">💾 Uložit</button></div></form>',
+  '<div class="foot"><button type="button" class="btn ghost" id="cfCancel">Zrušit</button><button type="submit" class="btn pri">Uložit</button></div></form>',
   function(sh){
     bindEyes(sh);bindMeter($('#cfPw',sh),$('#cfMeter',sh),$('#cfMeterL',sh));
     $('#cfGenToggle',sh).addEventListener('click',function(){$('#cfGen',sh).hidden=!$('#cfGen',sh).hidden;});
-    bindGenPanel($('#cfGen',sh),function(p){var i=$('#cfPw',sh);i.value=p;i.type='text';i.dispatchEvent(new Event('input'));});
+    bindGenPanel($('#cfGen',sh),function(p){var i=$('#cfPw',sh);i.value=p;i.type='text';$('.eyebtn',sh).innerHTML=I('eyeoff');i.dispatchEvent(new Event('input'));});
     $('#cfCancel',sh).addEventListener('click',closeModal);
     $('#cf',sh).addEventListener('submit',function(ev){
       ev.preventDefault();
@@ -800,15 +905,15 @@ function openChange(id){
       if(mode==='new'){e.history.push({value:e.pwd.value,from:e.pwd.since,to:now});e.pwd={value:pw,since:now};UI.open[e.id]=true;}
       else e.pwd.value=pw;
       touch(e);save();closeModal();render();
-      toast(mode==='new'?'✅ Nové heslo platí, staré je v historii':'✅ Heslo opraveno');
+      toast(mode==='new'?'Nové heslo platí, staré je v historii':'Heslo opraveno');
     });
   });
 }
 
 /* ====================== generátor (samostatný) ====================== */
 function openGenerator(){
-  openModal('<h2>🎲 Generátor hesel</h2><p class="lead">Heslo se vytvoří jen u tebe v zařízení a nikam se neukládá.</p>'+
-  '<div style="margin-top:12px" class="genout"><input class="in mono" id="gOut" readonly aria-label="Vygenerované heslo"><button class="icon-btn" type="button" id="gCopy" title="Kopírovat" aria-label="Kopírovat">📋</button></div>'+
+  openModal('<h2>'+I('dice',20)+'Generátor hesel</h2><p class="lead">Heslo se vytvoří jen u tebe v zařízení a nikam se neukládá.</p>'+
+  '<div style="margin-top:12px" class="genout"><input class="in mono" id="gOut" readonly aria-label="Vygenerované heslo"><button class="icon-btn" type="button" id="gCopy" title="Kopírovat" aria-label="Kopírovat">'+I('copy')+'</button></div>'+
   '<div class="meter"><i id="gMeter"></i></div><div class="meter-l" id="gMeterL"></div>'+genPanelHtml()+
   '<div class="foot"><button class="btn ghost" type="button" id="gClose">Zavřít</button></div>',
   function(sh){
@@ -838,8 +943,8 @@ async function exportBackup(share){
       setTimeout(function(){document.body.removeChild(a);URL.revokeObjectURL(url);},1500);
     }
     S.data.settings.lastBackup=Date.now();save();render();
-    toast('💾 Záloha je připravená (je zašifrovaná hlavním heslem)');
-  }catch(e){toast('Zálohu se nepovedlo vytvořit');}
+    toast('Záloha je připravená (zašifrovaná hlavním heslem)');
+  }catch(e){toast('Zálohu se nepovedlo vytvořit',true);}
 }
 function pickFile(cb){
   var i=document.createElement('input');i.type='file';i.accept='.json,application/json';
@@ -848,15 +953,15 @@ function pickFile(cb){
 }
 function importBackup(){
   pickFile(function(txt){
-    try{var b=JSON.parse(txt);if(b.app!=='klicenka')throw 0;}catch(e){return toast('Tohle není záloha z Klíčenky');}
-    openModal('<h2>📥 Import zálohy</h2><p class="lead">Zadej hlavní heslo, které platilo, když se záloha vytvářela. Záznamy se sloučí s těmi stávajícími, nic se nesmaže.</p>'+
+    try{var b=JSON.parse(txt);if(b.app!=='klicenka')throw 0;}catch(e){return toast('Tohle není záloha z Klíčenky',true);}
+    openModal('<h2>'+I('upload',20)+'Import zálohy</h2><p class="lead">Zadej hlavní heslo, které platilo, když se záloha vytvářela. Záznamy se sloučí s těmi stávajícími, nic se nesmaže.</p>'+
     '<form id="imf" autocomplete="off"><label class="f" for="imPw">Hlavní heslo zálohy</label>'+secretInput('imPw','','')+'<div class="err" id="imErr" hidden></div>'+
     '<div class="foot"><button class="btn ghost" type="button" id="imNo">Zrušit</button><button class="btn pri" type="submit" id="imGo">Importovat</button></div></form>',
     function(sh){
       bindEyes(sh);
       $('#imNo',sh).addEventListener('click',closeModal);
       $('#imf',sh).addEventListener('submit',async function(ev){
-        ev.preventDefault();var go=$('#imGo',sh);go.disabled=true;go.textContent='⏳ Chvilku…';
+        ev.preventDefault();var go=$('#imGo',sh);go.disabled=true;go.textContent='Chvilku…';
         try{
           var r=await decryptBlob(txt,$('#imPw',sh).value),inc=norm_data(r.data).entries,added=0,upd=0;
           inc.forEach(function(x){
@@ -864,7 +969,7 @@ function importBackup(){
             if(!ex){S.data.entries.push(x);added++;}
             else if((x.updatedAt||0)>(ex.updatedAt||0)){Object.assign(ex,x);upd++;}
           });
-          save();closeModal();render(true);toast('📥 Přidáno '+added+', aktualizováno '+upd);
+          save();closeModal();render(true);toast('Přidáno '+added+', aktualizováno '+upd);
         }catch(e){var er=$('#imErr',sh);er.hidden=false;er.textContent='Nesprávné heslo zálohy.';go.disabled=false;go.textContent='Importovat';}
       });
     });
@@ -875,18 +980,18 @@ function importBackup(){
 function openSettings(){
   var s=S.data.settings,lb=s.lastBackup;
   function opts(arr,cur,unit){return arr.map(function(v){return '<option value="'+v+'"'+(v===cur?' selected':'')+'>'+v+' '+unit+'</option>';}).join('');}
-  openModal('<h2>⚙️ Nastavení a záloha</h2>'+
-  '<div class="sect">🎨 Vzhled</div><select class="in" id="stTheme" aria-label="Vzhled"><option value="auto">Podle zařízení</option><option value="light">☀️ Světlý</option><option value="dark">🌙 Tmavý</option></select>'+
-  '<div class="sect">🔒 Zamykání a upozornění</div>'+
+  openModal('<h2>'+I('sliders',20)+'Nastavení a záloha</h2>'+
+  '<div class="sect">'+I('sun',16)+'Vzhled</div><select class="in" id="stTheme" aria-label="Vzhled"><option value="auto">Podle zařízení</option><option value="light">Světlý</option><option value="dark">Tmavý</option></select>'+
+  '<div class="sect">'+I('lock',16)+'Zamykání a upozornění</div>'+
   '<label class="f" for="stLock">Zamknout po nečinnosti</label><select class="in" id="stLock">'+opts([1,2,5,10,15,30],s.autoLockMin,'min')+'</select>'+
   '<label class="f" for="stWarn">Upozornit na vypršení dopředu</label><select class="in" id="stWarn">'+opts([7,14,30,45],s.warnDays,'dní')+'</select>'+
-  '<div class="sect">💾 Záloha</div><p class="lead">Záloha je soubor zašifrovaný hlavním heslem. Můžeš ho klidně uložit na OneDrive nebo poslat sama sobě.</p>'+
-  '<div class="chips" style="margin-top:6px"><button class="btn" type="button" id="stExp">⬇️ Stáhnout zálohu</button>'+(navigator.share&&window.File?'<button class="btn" type="button" id="stShare">📤 Sdílet / uložit do Souborů</button>':'')+'<button class="btn" type="button" id="stImp">📥 Importovat zálohu</button></div>'+
+  '<div class="sect">'+I('download',16)+'Záloha</div><p class="lead">Záloha je soubor zašifrovaný hlavním heslem. Můžeš ho klidně uložit na OneDrive nebo poslat sama sobě.</p>'+
+  '<div class="chips" style="margin-top:6px"><button class="btn" type="button" id="stExp">'+I('download',16)+'Stáhnout zálohu</button>'+(navigator.share&&window.File?'<button class="btn" type="button" id="stShare">'+I('share',16)+'Sdílet / uložit do Souborů</button>':'')+'<button class="btn" type="button" id="stImp">'+I('upload',16)+'Importovat zálohu</button></div>'+
   '<div class="hint">'+(lb?'Poslední záloha: '+fmt(lb):'Zatím bez zálohy.')+'</div>'+
-  '<div class="sect">🔑 Změnit hlavní heslo</div>'+
+  '<div class="sect">'+I('key',16)+'Změnit hlavní heslo</div>'+
   '<form id="mpf" autocomplete="off"><label class="f" for="mpOld">Současné</label>'+secretInput('mpOld','','')+'<label class="f" for="mpNew">Nové (aspoň 8 znaků)</label>'+secretInput('mpNew','','')+'<label class="f" for="mpNew2">Nové znovu</label>'+secretInput('mpNew2','','')+
   '<div class="err" id="mpErr" hidden></div><button class="btn" type="submit" id="mpGo" style="margin-top:12px">Změnit hlavní heslo</button></form>'+
-  '<div class="sect">⚠️ Nebezpečná zóna</div><button class="btn danger" type="button" id="stWipe">Smazat všechna data</button>'+
+  '<div class="sect">'+I('alert',16)+'Nebezpečná zóna</div><button class="btn danger" type="button" id="stWipe">Smazat všechna data</button>'+
   '<div class="foot"><button class="btn pri" type="button" id="stClose">Hotovo</button></div>',
   function(sh){
     bindEyes(sh);
@@ -909,12 +1014,12 @@ function openSettings(){
       var o=$('#mpOld',sh).value,n=$('#mpNew',sh).value,n2=$('#mpNew2',sh).value;
       if(n.length<8){er.hidden=false;er.textContent='Nové heslo musí mít aspoň 8 znaků.';return;}
       if(n!==n2){er.hidden=false;er.textContent='Nová hesla se neshodují.';return;}
-      go.disabled=true;go.textContent='⏳ Chvilku…';
+      go.disabled=true;go.textContent='Chvilku…';
       try{
         await saveChain;await decryptBlob(readVault(),o);
         var salt=crypto.getRandomValues(new Uint8Array(16));
         S.meta={iter:ITER,salt:toB64(salt)};S.key=await deriveKey(n,salt,ITER);
-        await save();closeModal();toast('🔑 Hlavní heslo změněno. Starší zálohy se otevřou pořád starým heslem.');
+        await save();closeModal();toast('Hlavní heslo změněno. Starší zálohy se otevřou pořád starým heslem.');
       }catch(e){er.hidden=false;er.textContent='Současné heslo nesouhlasí.';go.disabled=false;go.textContent='Změnit hlavní heslo';}
     });
   });
@@ -942,6 +1047,7 @@ if(window.matchMedia){
   if(mq.addEventListener)mq.addEventListener('change',onMq);
 }
 
+hydrate(document);
 applyTheme();
 if(!window.crypto||!crypto.subtle){
   $('#lock').hidden=false;$('#lockSub').textContent='Tenhle prohlížeč nepodporuje šifrování. Otevři soubor v aktuálním Safari, Chrome nebo Edge (případně přes https).';
